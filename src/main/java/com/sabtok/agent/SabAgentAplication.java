@@ -1,4 +1,4 @@
-package dev.danvega.dvaas;
+package com.sabtok.agent;
 
 import org.springframework.ai.ollama.api.OllamaApi;
 import org.springframework.beans.factory.annotation.Value;
