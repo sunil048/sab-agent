@@ -5,7 +5,7 @@ spring:
     ollama:
       base-url: http://localhost:11434
       chat:
-        model: codellama:latest
+        model:  llama3.2
         options:
           temperature: 0.7
       embedding:
@@ -20,10 +20,13 @@ spring:
         version: 0.0.1
         toolcallback:
           enabled: true
-        streamable-http:
+        stdio: # Use stdio transport layers for local execution pipelines
           connections:
-            dvaas:
-              url: https://mcp.danvega.dev/mcp
+            local-weather-server:
+              command: "java"
+              args:
+                - "-jar"
+                - "C:\\Users\\Sunil\\git\\mcp-server\\mcp-server\\target\\mcp-server-0.0.1-SNAPSHOT.jar"
 
 SERVER:
   PORT: 8081
