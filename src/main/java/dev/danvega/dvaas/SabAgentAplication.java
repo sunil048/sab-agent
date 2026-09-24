@@ -5,18 +5,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootApplication
-public class DvaasClientApplication {
+public class SabAgentAplication {
 
 	@Value("${spring.ai.ollama.base-url:http://localhost:11434}")
 	private String baseUrl;
 
 	public static void main(String[] args) {
-		SpringApplication.run(DvaasClientApplication.class, args);
+		SpringApplication.run(SabAgentAplication.class, args);
 	}
 
 	@Bean

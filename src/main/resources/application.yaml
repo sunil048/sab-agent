@@ -1,6 +1,6 @@
 spring:
   application:
-    name: dvaas-client
+    name: sab-agent
   ai:
     ollama:
       base-url: http://localhost:11434
@@ -20,13 +20,15 @@ spring:
         version: 0.0.1
         toolcallback:
           enabled: true
-        stdio: # Use stdio transport layers for local execution pipelines
+        stdio:
           connections:
-            local-weather-server:
-              command: "java"
+            docker-shopping-server:
+              command: "docker"
               args:
-                - "-jar"
-                - "C:\\Users\\Sunil\\git\\mcp-server\\mcp-server\\target\\mcp-server-0.0.1-SNAPSHOT.jar"
+                - "run"
+                - "-i" # Essential for terminal pipelining stream channels
+                - "--rm"
+                - "tiger123/sab-mcp-server:main"
 
 SERVER:
   PORT: 8081
